@@ -303,7 +303,7 @@ instance Show StackBuildException where
             ]
     show (ConstructPlanFailed msg) = msg
     show (LocalPackagesPresent locals) = unlines
-      $ "Local packages are not allowed when using the script command. Packages found:"
+      $ "Local packages are not allowed when using the script command. If you are attempting to use a package that is not in chosen snapshot, please take a look at this issue: https://github.com/commercialhaskell/stack/issues/3370. Packages found:"
       : map (\ident -> "- " ++ packageIdentifierString ident) locals
 
 missingExeError :: Bool -> String -> String
